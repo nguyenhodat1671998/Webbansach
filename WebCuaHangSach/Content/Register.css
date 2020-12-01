@@ -1,0 +1,59 @@
+﻿label {
+    display: inline-block;
+    width: 150px;
+}
+
+.submit {
+    color: white;
+    background-color: #f44336;
+    margin-left: 260px;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 100px;
+    font-size: 20px;
+    opacity: 0.6;
+}
+
+    .submit:hover {
+        opacity: 1
+    }
+
+input, select {
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input {
+    margin: 5px;
+    width: 300px;
+    left: 20px;
+    height: 25px;
+}
+
+div {
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+
+.header {
+    color: white;
+    background: #142745;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.ThongTin {
+    margin-left: 15px;
+}
+
+.InfoItem {
+    margin: 3px;
+}
+
+.body {
+    width: 60%;
+    border-width: 1px;
+    border-style: groove;
+    float: left;
+    margin-left: 100px;
+}

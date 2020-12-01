@@ -1,0 +1,56 @@
+﻿@model WebCuaHangSach.Models.Account
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+
+<h2>Giỏ hàng</h2>
+<table border="1" class="List-book ManageBook-element">
+    @if (ViewBag.ListCash != null)
+    {
+        <tr>
+            <th>Tên sách</th>
+            <th>Hình</th>
+            <th>Đơn giá (đã giảm giá)</th>
+            <th>Số lượng</th>
+            <th>Tổng giá</th>
+            <th></th>
+        </tr>
+        foreach (var cash in ViewBag.ListCash)
+        {
+            <tr>
+                <td>@cash.Book.Name</td>
+                <td><img style="width:100px; height:150px" src="@Url.Content("~/UploadedFiles/"+cash.Book.Image)">
+                <td>@cash.Book.ReducePrice</td>
+                <td>@cash.Count</td>
+                <td>@cash.Price vnđ</td>
+                <td>
+                    <a href="~/Cash/DeleteCash/@cash.ID">Xóa </a>
+                </td>
+            </tr>
+        }
+    }
+    <tr>
+        <td>Tổng giá trị đơn hàng: </td>
+        @if (ViewBag.Detail != null)
+        {
+            <td>@ViewBag.Detail.Bill.TotalCost vnđ</td>
+        }
+
+    </tr>
+    <tr>
+        <td colspan="5" align="center">
+            <a href="~/Cart/ExportToExcel">
+                <button class="btn btn-success add-new">Xuất Excel</button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" align="center">
+            <a href="~/Cash/OrderBill">
+                <button class="btn btn-success add-new">Đặt Hàng</button>
+            </a>
+        </td>
+    </tr>
+</table>
+
+

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "ListPaid";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Quản Lý Đơn Hàng</li>
+</ol>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+
+      $('#table-swap-axis').basictable({
+        swapAxis: true
+      });
+
+      $('#table-force-off').basictable({
+        forceResponsive: false
+      });
+
+      $('#table-no-resize').basictable({
+        noResize: true
+      });
+
+      $('#table-two-axis').basictable();
+
+      $('#table-max-height').basictable({
+        tableWrapper: true
+      });
+    });
+</script>
+<div class="agile-grids">
+    <div class="agile-tables">
+        <div class="w3l-table-info">
+            <h2>Đơn hàng đã xử lý</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tài Khoản</th>
+                        <th>Thời gian đặt</th>
+                        <th>tổng giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListPaid)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Account.UserName</td>
+                            <td>@item.FoundedDate</td>
+                            <td>@item.TotalCost</td>
+                            <td></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

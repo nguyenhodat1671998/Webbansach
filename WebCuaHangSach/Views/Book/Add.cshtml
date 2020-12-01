@@ -1,0 +1,184 @@
+﻿@model WebCuaHangSach.Models.Book
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Thêm sách</li>
+</ol>
+<div class="col-md-5 grid-form1">
+    <form action="~/Book/Add" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Hình ảnh:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="file" name="file" id="file">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Tên sách:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="Name" id="Name">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Nhà xuất bản:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="PublishingCompany" id="PublishingCompany">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Ngày xuất bản:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="date" name="PublishingDate" id="PublishingDate">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Kích thước:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="Size" id="Size">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Số trang:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="NumberOfPages" id="NumberOfPages">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Loại bìa:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="CoverType" id="CoverType">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Loại sách:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    @Html.DropDownListFor(model => model.BookTypeID, new SelectList(Model.BookTypeCollection, "ID", "Name"))
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Tác giả:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    @Html.DropDownListFor(model => model.AuthorID, new SelectList(Model.AuthorCollection, "ID", "Name"), "Select")
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Giá:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="Price" id="Price">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label">Giảm giá:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+                    </span>
+                    <input type="text" name="Discount" id="Discount">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Thêm sách">
+        </div>
+</form>
+</div>
+	
+<div class="grid-form1 col-md-7">
+            <h2>Danh sách sách</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sách</th>
+                        <th>Giá</th>
+                        <th>Giá đã giảm</th>
+                        <th>Tác giả</th>
+                        <th>Loại sách</th>
+                        <th>Số lượng tồn</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in ViewBag.ListBook)
+                    {
+                    <tr>
+                        <td>@book.ID</td>
+                        <td>@book.Name</td>
+                        <td>@book.Price</td>
+                        <td>@book.ReducePrice</td>
+                        <td>@book.Author.Name</td>
+                        <td>@book.BookType.Name</td>
+                        <td>@book.Count</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        
+</div>
+

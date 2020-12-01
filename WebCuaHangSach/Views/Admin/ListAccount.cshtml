@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Quản lý khách hàng</li>
+</ol>
+
+
+<div class="agile-grids">
+    <div class="agile-tables">
+        <div class="w3l-table-info">
+            <h2>Danh sách khách hàng</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Điện thoại</th>
+                        <th>Email</th>
+                        
+                        <th>Đăng nhập cuối</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListAccount)
+                    {
+                        <tr>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            
+                            <td>@item.LastLoginDate</td>
+                            <td>
+                                <a class="btn btn-warning" href="~/Account/Edit/@item.ID">Sửa</a>
+                                @if (item.IsLocked == false)
+                                {
+                                    <a class="bg-danger dark btn btn-hover" href="~/Account/Lock/@item.ID" >Khóa</a>
+                                }
+                                else
+                                {
+                                    <a class="bg-danger dark btn btn-hover" href="~/Account/UnLock/@item.ID">Mở khóa</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

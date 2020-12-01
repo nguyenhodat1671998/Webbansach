@@ -1,0 +1,104 @@
+﻿
+/* CSS Document */
+body{
+	background-color:#E5DBDB;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.frame{
+	background-color: white;
+}
+.rightMenu ul li a{
+	float: left;
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	
+}
+
+.rightMenu{
+	margin-left: 70%;
+	
+}
+.left{
+	float: left;
+	margin-left: 10px;
+	margin-top: 25px;
+	text-decoration: none;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+}
+.Menu{
+	border-style: groove;
+	border-width: 1px;
+	height: 50px
+}
+ul{
+	list-style: none;
+}
+
+.ToyItem{
+	float: left;
+	height: 250px;
+	width: 320px;
+	margin: 10px;
+	border: 1px solid #D7CECE;
+}
+.ToyItem div{
+	float: left;
+}
+.ToyImage {
+    margin-left: 30px;
+    width: 120px;
+    height: 150px;
+}
+.ItemLeft{
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 150px;
+}
+.ItemRight{
+	margin-left: 10px;
+	margin-top:20px;
+}
+
+.title{
+	text-decoration: none;
+	color: black;
+}
+.price{
+	margin-top: 10px;
+}
+.price1{
+	background-color: orange;
+	color: white;
+}
+
+.price2{
+	font-size: 12px;
+	text-decoration: line-through;
+}
+
+.LeftContent img{
+	float: left;
+	width: 350px;
+	height: 425px;
+	margin: 10px;
+}
+
+#XemThem{
+	margin-left: 87%;
+	color: orange;
+	text-decoration: none;
+}
+.circle {
+  	width: 35px;
+  	height: 35px;
+  	border-radius: 50%;
+  	font-size: 15px;
+  	color: #fff;
+  	text-align: center;
+	line-height:35px;
+  	background:orange;
+	
+}

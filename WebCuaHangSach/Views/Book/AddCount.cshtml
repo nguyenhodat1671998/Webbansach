@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "AddCount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Nhập hàng</li>
+</ol>
+<div class="grid-form1">
+    <div class="panel-body">
+        <div class="col-md-2">
+            <a class="hvr-icon-back" href="~/Admin/ListBook">Quay về</a>
+        </div>
+        <form role="form" action="~/Book/AddCount" method="post" class="form-horizontal">
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Mã sách:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" readonly="readonly" type="text" name="ID" id="ID" value=@ViewBag.Book.ID>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Tên sách:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" readonly="readonly" type="text" name="ID" id="ID" value="@ViewBag.Book.Name">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Số lượng hiện tại:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" readonly="readonly" type="number" value="@ViewBag.Book.Count">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Số lượng nhập:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="number" name="Count" id="Count">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <span class="text-info">@ViewBag.Message</span>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5"></label>
+                <div class="col-md-2">
+                    <input class="btn btn-primary btn-hover " value="Nhập thêm hàng" type="submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="grid-form1">
+    <div class="panel-body">
+        <div class="col-md-2">
+            <a class="hvr-icon-back" href="~/Admin/ListAccount">Quay về</a>
+        </div>
+        <form role="form" action="~/Account/Edit" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">ID</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input readonly="readonly" type="text" class="form-control1" id="ID" name="ID" value="@ViewBag.Account.ID">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Họ</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="FirstName" id="FirstName" value="@ViewBag.Account.FirstName">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Tên</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="LastName" id="LastName" value="@ViewBag.Account.LastName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Email Address</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Email" id="Email" value="@ViewBag.Account.Email">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Số điện thoại</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="PhoneNumber" id="PhoneNumber" value="@ViewBag.Account.PhoneNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="text-info">@ViewBag.Message</span>
+            </div>  
+            <div class="form-group">
+                <label class="col-md-5"></label>
+                <div class="col-md-2">
+                    <input class="btn btn-primary btn-hover " value="Cập nhật" type="submit" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+

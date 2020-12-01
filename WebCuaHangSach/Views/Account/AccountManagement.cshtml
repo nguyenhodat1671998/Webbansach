@@ -1,0 +1,164 @@
+﻿@model WebCuaHangSach.Models.Account
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <style type="text/css">
+        body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .table-wrapper {
+            width: 80em;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+
+        .table-title {
+            padding-bottom: 10px;
+            margin: 0 0 10px;
+        }
+
+            .table-title h2 {
+                margin: 6px 0 0;
+                font-size: 22px;
+                width: 100%;
+                text-align: center;
+            }
+
+
+        table.table {
+            table-layout: fixed;
+        }
+
+            table.table tr th, table.table tr td {
+                border-color: #e9e9e9;
+            }
+
+            table.table th i {
+                font-size: 13px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+
+
+
+            table.table td a {
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 5px;
+                min-width: 24px;
+            }
+
+                table.table td a.add i {
+                    font-size: 24px;
+                    margin-right: -1px;
+                    position: relative;
+                    top: 3px;
+                }
+
+            table.table .form-control {
+                height: 32px;
+                line-height: 32px;
+                box-shadow: none;
+                border-radius: 2px;
+            }
+
+                table.table .form-control.error {
+                    border-color: #f50000;
+                }
+
+            table.table td .add {
+                display: none;
+            }
+
+        table input.insl {
+            width: 5em;
+            padding: 0.5em;
+            border-radius: 5px;
+            color: blue;
+            text-align: center;
+        }
+    </style>
+
+    <div class="table-wrapper">
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th style="width:6em;">Họ và tên</th>
+                    <th style="width:6em;">Tên đăng nhập</th>
+                    <th style="width:6em;">Điện thoại</th>
+                    <th style="width:12em;">Email</th>
+                    <th style="width:3em;">Điểm</th>
+                    <th style="width:6em;">Lần đăng nhập cuối</th>
+                    <th style="width:6em;"></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.ListAccount)
+                {
+                    <tr>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Email</td>
+                        <td>@item.Point</td>
+                        <td>@item.LastLoginDate</td>
+                        @*<td>
+            @if (item.RoleID == 1 && item.IsLocked == false)
+            {
+                <select id="Quyen" name="Quyen">
+                    <option selected="selected" value="1">Quản trị viên</option>
+                    <option value="2">Khách hàng</option>
+                    <option value="3">Khóa</option>
+                </select>
+            }
+            else if (item.RoleID == 2 && item.IsLocked==false)
+            {
+                <select id="Quyen" name="Quyen">
+                    <option value="1">Quản trị viên</option>
+                    <option selected="selected" value="2">Khách hàng</option>
+                    <option value="3">Khóa</option>
+                </select>
+            }
+            else
+            {
+                <select id="Quyen" name="Quyen">
+                    <option value="1">Quản trị viên</option>
+                    <option value="2">Khách hàng</option>
+                    <option selected="selected" value="3">Khóa</option>
+                </select>
+            }
+        </td>*@
+                        <td>
+                            <a class="btn btn-warning" href="~/Account/Edit/@item.ID">Sửa thông tin</a>
+                            <a class="btn btn-warning" href="~/Account/Lock/@item.ID">Khóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+

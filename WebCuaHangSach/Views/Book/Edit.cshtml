@@ -1,0 +1,180 @@
+﻿@model WebCuaHangSach.Models.Book
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Sửa sách</li>
+</ol>
+
+<div class="grid-form1">
+    <div class="panel-body">
+        <div class="col-md-2">
+            <a class="hvr-icon-back" href="~/Admin/ListBook">Quay về</a>
+        </div>
+        <form role="form" action="~/Book/Edit" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">ID:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" readonly="readonly" type="text" name="ID" id="ID" value=@ViewBag.book.ID>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group  col-md-6">
+
+                <label class="col-md-4 control-label">Hình ảnh:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="file" name="file" id="file" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group  col-md-6">
+
+                <label class="col-md-4 control-label">Tên sách:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Name" id="Name" value="@ViewBag.book.Name">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group  col-md-6">
+
+                <label class="col-md-4 control-label">Nhà xuất bản:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="PublishingCompany" id="PublishingCompany" value="@ViewBag.book.PublishingCompany">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">Ngày xuất bản:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="datetime" name="PublishingDate" id="PublishingDate" value="@ViewBag.book.PublishingDate">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">Kích thước:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Size" id="Size" value="@ViewBag.book.Size">
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">Số trang:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="NumberOfPages" id="NumberOfPages" value="@ViewBag.book.NumberOfPages">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Ngày xuất bản:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="datetime" name="PublishingDate" id="PublishingDate" value="@ViewBag.book.PublishingDate">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">Loại bìa:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="CoverType" id="CoverType" value="@ViewBag.book.CoverType">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Tác giả:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        @Html.DropDownListFor(model => model.AuthorID, new SelectList(Model.AuthorCollection, "ID", "Name"))
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Loại sách:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        @Html.DropDownListFor(model => model.BookTypeID, new SelectList(Model.BookTypeCollection, "ID", "Name"))
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+
+                <label class="col-md-4 control-label">Giá:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Price" id="Price" value=@ViewBag.book.Price>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Giảm giá:</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Discount" id="Discount" value=@ViewBag.book.Discount>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <span class="text-success">@ViewBag.Message</span>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5"></label>
+                <div class="col-md-2">
+                    <input class="btn btn-primary btn-hover " value="Cập nhật" type="submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

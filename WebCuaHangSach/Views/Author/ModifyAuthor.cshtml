@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "AddBookType";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table').basictable();
+
+        $('#table-breakpoint').basictable({
+            breakpoint: 768
+        });
+
+        $('#table-swap-axis').basictable({
+            swapAxis: true
+        });
+
+        $('#table-force-off').basictable({
+            forceResponsive: false
+        });
+
+        $('#table-no-resize').basictable({
+            noResize: true
+        });
+
+        $('#table-two-axis').basictable();
+
+        $('#table-max-height').basictable({
+            tableWrapper: true
+        });
+    });
+</script>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Sửa Tác Giả</li>
+</ol>
+<div class="col-md-5 grid-form1">
+    <form style="float:left; width:400px" action="~/Author/ModifyAuthor" method="post">
+        <input type="hidden" id="ID" value="@ViewBag.Author.ID" name="ID" />
+        <div class="form-group">
+            <label class="col-md-4 control-label">Tên tác giả:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-align-justify"></i>
+                    </span>
+                    <input type="text" value="@ViewBag.Author.Name" id="Name" name="Name" />
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Mô tả:</label>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-align-justify"></i>
+                    </span>
+                    <input type="text" value="@ViewBag.Author.Description" id="Description" name="Description" />
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-group col-lg-offset-4">
+            <input type="submit" value="Sửa tác giả">
+        </div>
+    </form>
+</div>
+

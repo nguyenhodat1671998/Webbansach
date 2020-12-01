@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Admin</a><i class="fa fa-angle-right"></i>Thêm khách hàng</li>
+</ol>
+<div class="col-md-5 grid-form1">
+    
+    <div class="panel-body">
+        <form role="form" action="~/Account/Add" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Họ</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="FirstName" id="FirstName">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Tên</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="LastName" id="LastName">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Email Address</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="Email" id="Email">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Số điện thoại</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                        <input class="form-control1" type="text" name="PhoneNumber" id="PhoneNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="text-info">@ViewBag.Message</span>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5"></label>
+                <div class="col-md-2">
+                    <input class="btn btn-primary btn-hover " value="Thêm khách hàng" type="submit" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div class="grid-form1 col-md-7">
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var acc in ViewBag.ListAccount)
+            {
+                <tr>
+                    <td>@acc.FirstName @acc.LastName</td>
+                    <td>@acc.Email</td>
+                    <td>@acc.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
