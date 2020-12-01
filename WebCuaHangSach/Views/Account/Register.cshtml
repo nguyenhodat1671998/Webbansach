@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Register";
 }
 
 <main class="page-section inner-page-sec-padding-bottom">
@@ -20,22 +20,41 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-                <form action="./">
+                <form action="~/Account/Register">
                     <div class="login-form">
                         <h4 class="login-title">Returning Customer</h4>
                         <p><span class="font-weight-bold">I am a returning customer</span></p>
                         <div class="row">
                             <div class="col-md-12 col-12 mb--15">
-                                <label for="email">Enter you email address here...</label>
-                                <input class="mb-0 form-control" type="email" id="email" placeholder="Enter you email address here...">
+                                <label for="email">Username</label>
+                                <input class="mb-0 form-control" type="text" id="UserName" name="UserName" placeholder="Enter you email address here...">
+                            </div>
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">First name</label>
+                                <input class="mb-0 form-control" type="text" id="FirstName" name="FirstName">
+                            </div>
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">Last name</label>
+                                <input class="mb-0 form-control" type="text" id="LastName" name="LastName" >
+                            </div>
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">Phone number</label>
+                                <input class="mb-0 form-control" type="number" id="PhoneNumber" name="PhoneNumber" >
+                            </div>
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">Email</label>
+                                <input class="mb-0 form-control" type="email" id="Email" name="Email" >
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Password</label>
-                                <input class="mb-0 form-control" type="password" id="password">
-                                <a href="" class="forget-pass">Forgotten Password</a>
+                                <input class="mb-0 form-control" type="password" id="PassWord" name="PassWord">
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Re-enter password</label>
+                                <input class="mb-0 form-control" type="password" id="RePassWord" name="RePassWord">
                             </div>
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-outlined">Login</a>
+                                <input type="submit" class="btn btn-outlined" value="Đăng ký" />
                             </div>
                         </div>
                     </div>
