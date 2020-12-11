@@ -30,23 +30,31 @@ namespace WebCuaHangSach.Controllers
             {
                 Session["Account_Role"] = 0;
             }
+            ViewBag.Message = "";
             return View();
         }
         [HttpPost]
         public ActionResult Register(string UserName, string PassWord,string RePassWord,
             string FirstName, string LastName, string PhoneNumber, string Email)
         {
-            if (Session["Account_UserName"] == null)
+            try
             {
-                Session["Account_Role"] = 0;
+                if (Session["Account_UserName"] == null)
+                {
+                    Session["Account_Role"] = 0;
+                }
+                if (PassWord.Equals(RePassWord))
+                {
+                    AccountAction.AddAccount(UserName, PassWord, FirstName, LastName, PhoneNumber, Email);
+                    ViewBag.Message = "Register successfully";
+                }
+                return View();
             }
-            if (PassWord.Equals(RePassWord))
+            catch
             {
-                AccountAction.AddAccount(UserName, PassWord, FirstName, LastName, PhoneNumber, Email);
-                ViewBag.Message = "Register successfully";
+                ViewBag.Message = "Register failed";
+                return View();
             }
-            
-            return View();
         }
 
         public ActionResult Add()

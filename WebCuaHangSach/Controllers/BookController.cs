@@ -14,8 +14,7 @@ namespace WebCuaHangSach.Controllers
     {
         // GET: Book
         public ActionResult Index()
-        {
-           
+        { 
             return View();
         }
         public ActionResult Edit(int ID)

@@ -30,9 +30,9 @@ namespace WebCuaHangSach.Action
                     LastName, PhoneNumber, Email);
                 db.Accounts.Add(account);
                 db.SaveChanges();
+                db.Dispose();
             }
         }
-
         public static bool Add(string FirstName, string LastName, string Email, string PhoneNumber)
         {
             using (var db = new BookContext())

@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-                <form action="~/Account/Register">
+                <form action="~/Account/Register" method="post">
                     <div class="login-form">
                         <h4 class="login-title">Returning Customer</h4>
                         <p><span class="font-weight-bold">I am a returning customer</span></p>
@@ -35,15 +35,15 @@
                             </div>
                             <div class="col-md-12 col-12 mb--15">
                                 <label for="email">Last name</label>
-                                <input class="mb-0 form-control" type="text" id="LastName" name="LastName" >
+                                <input class="mb-0 form-control" type="text" id="LastName" name="LastName">
                             </div>
                             <div class="col-md-12 col-12 mb--15">
                                 <label for="email">Phone number</label>
-                                <input class="mb-0 form-control" type="number" id="PhoneNumber" name="PhoneNumber" >
+                                <input class="mb-0 form-control" type="number" id="PhoneNumber" name="PhoneNumber">
                             </div>
                             <div class="col-md-12 col-12 mb--15">
                                 <label for="email">Email</label>
-                                <input class="mb-0 form-control" type="email" id="Email" name="Email" >
+                                <input class="mb-0 form-control" type="email" id="Email" name="Email">
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Password</label>
@@ -54,8 +54,12 @@
                                 <input class="mb-0 form-control" type="password" id="RePassWord" name="RePassWord">
                             </div>
                             <div class="col-md-12">
+                                @ViewBag.Message
+                            </div>
+                            <div class="col-md-12">
                                 <input type="submit" class="btn btn-outlined" value="Đăng ký" />
                             </div>
+
                         </div>
                     </div>
                 </form>
