@@ -135,7 +135,8 @@ namespace WebCuaHangSach.Action
             {
                 List<BillDetail> listdetail = null;
                 var bill = db.Bills.Where(b => b.AccountID == AccountId && b.IsOrdered==false).FirstOrDefault();
-                if(bill != null && bill.IsPaid==false)
+                
+                if (bill != null && bill.IsPaid==false)
                 {
                     listdetail = db.BillDetails.Include(x =>x.Book)
                         .Include(x => x.Bill)

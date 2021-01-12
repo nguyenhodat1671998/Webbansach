@@ -236,3 +236,14 @@
     </div>
 </main>
 
+public int ID { get; set; }
+        [ForeignKey("Account")]
+        public int AccountID { get; set; }
+        public DateTime FoundedDate { get; set; }
+        public double TotalCost { get; set; }
+        //Paid and Delete properties
+        public bool IsPaid { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsOrdered { get; set; }
+        public bool IsApplied { get; set; }
+

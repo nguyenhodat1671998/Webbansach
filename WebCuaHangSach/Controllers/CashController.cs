@@ -15,12 +15,6 @@ namespace WebCuaHangSach.Controllers
 {
     public class CashController : Controller
     {
-     
-
-      
-
-        
-  
 
         #region CashManagement
         public ActionResult ListNotApply()
@@ -59,28 +53,20 @@ namespace WebCuaHangSach.Controllers
             return View();
         }
 
-        public string OrderBill()
+        public ActionResult OrderBill()
         {
-            int a = (int)Session["UserID"];
-            var listcash = BillAction.ListCartDetail(a);
-            var detail = listcash.FirstOrDefault();
-            string text = "";
-            foreach (var item in listcash)
+            try
             {
-                text += item.Book.Name + "<br/>" + item.Price + "\n" + item.Count;
+                int a = (int)Session["UserID"];
+                var listcash = BillAction.ListCartDetail(a);
+                var detail = listcash.FirstOrDefault();
+                CashAction.Order(a);
+                return RedirectToAction("ViewCart","Cart");
+               
+            } catch {
+                return RedirectToAction("ViewCart", "Cart");
             }
-            CashAction.Order(a);
-            string content = System.IO.File.ReadAllText(Server.MapPath("~/client/template/neworder.html"));
-
-            content = content.Replace("{{Name}}", "sadsada");
-            content = content.Replace("{{product}}", text);
-            content = content.Replace("{{Content}}", "allday997@gmail.com");
-            content = content.Replace("{{totalcost}}", Convert.ToString(detail.Bill.TotalCost));
-            var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-            new MailHelper().SendMail("allday997@gmail.com", "Đơn Đặt Hàng", content);
-            new MailHelper().SendMail(toEmail, "Đơn Đặt Hàng", content);
-            return "ok";
+            
         }
         #endregion
     }

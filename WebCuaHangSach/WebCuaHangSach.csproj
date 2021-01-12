@@ -256,6 +256,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\customjs\ajax-mail.js" />
     <Content Include="Scripts\customjs\custom.js" />
+    <Content Include="Scripts\customjs\money.js" />
     <Content Include="Scripts\customjs\plugins.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
